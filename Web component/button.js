@@ -41,4 +41,10 @@ class Button extends HTMLElement {
   }
 }
 customElements.define('xu-button', Button);
+// TODO 将来要做的事
+// FIXME 本人修改
+// BUG 这是要修改的Bug
+// HACK 阿斯顿发
+// DONE 完成
+// NOTE 备注
 // export default Button;

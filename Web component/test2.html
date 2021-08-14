@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>自己测试2</title>
+</head>
+<body>
+  <my-div>
+    <span slot="span-content">测试slot</span>
+  </my-div>
+
+  <template id="span-tpl">
+    <slot name="span-content">slot初始值</slot>
+  </template>
+  <script>
+    class MyDiv extends HTMLElement{
+      constructor(){
+        super()
+        const temp = document.getElementById('span-tpl');
+        const spanContent = temp.content;
+
+        const shadowRoot = this.attachShadow({mode:"open"});
+        const warpDiv = document.createElement('div');
+        warpDiv.appendChild(spanContent.cloneNode(true));
+        shadowRoot.appendChild(warpDiv);
+      }
+    }
+    window.customElements.define("my-div",MyDiv)
+  </script>
+</body>
+</html>

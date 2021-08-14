@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    function zeroMove(array) {
+
+      let len = array.length;
+
+      let j = 0;
+
+      for (let i = 0; i < len - j; i++) {
+        if (array[i] === 0) {
+          array.push(0);
+          array.splice(i, 1);
+          i--; // 每次保证下标从0开始
+          j++; // 数组尾部追加0后，循环次数就减1
+        }
+
+      }
+      return array;
+
+    }
+    const result = zeroMove([0, 1, 0, 3, 12]);
+    console.log(result)
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

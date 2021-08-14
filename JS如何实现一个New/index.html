@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自己实现一个New</title>
+  <script type="text/javascript">
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = function() {
+          console.log(this.name)
+        }
+        return '123';
+    }
+    function myNew() {
+      debugger
+      var constr = Array.prototype.shift.call(arguments); // 获取Person构造函数
+      var obj = Object.create(constr.prototype); // 创建一个新的对象，原型指向构造的原型
+      var result = constr.apply(obj, arguments); // 在obj上执行构造函数，把剩余的参数传递进去，使用一个变量接收构造函数的返回值
+      return result instanceof constr? result : obj; // 如果返回的是undefined，null以及基本类型的时候，都会返回新的对象；而只有返回对象的时候，才会返回构造函数的返回值。 ps:new 返回this
+    }
+    const person = myNew(Person,'郑攀',30,'web developer')
+
+    console.log(person.name) // Nicholas
+    person.sayName();        // Nicholas
+    console.log(person.__proto__ === Person.prototype);   // true
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
