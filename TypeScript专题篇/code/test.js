@@ -1,5 +1,6 @@
-"use strict";
-exports.__esModule = true;
-var myAdd = function (x, y) { return x + y; };
-var res = myAdd(10, 12);
-console.log(res);
+// @ts-ignore
+var testFunc = {};
+// @ts-ignore
+var result = testFunc('mike'); // 有类型提醒
+testFunc.someProperty = 3;
+console.log(result, testFunc);

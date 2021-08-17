@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var list = [
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 2 },
+      { title: "xxxx", level: 2 },
+      { title: "xxxx", level: 3 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 2 },
+      { title: "xxxx", level: 0 },
+    ];
+    var toTree = (list, level = 0) =>
+      list.reduce(
+        (acc, cur, idx, arr) => (
+          cur.level == level &&
+          acc.push({
+            title: cur.title,
+            level: cur.level,
+            items: toTree(
+              list
+                .slice(idx + 1)
+                .map(
+                  (item, _, array) => (
+                    item.level == level && (array.length = 0), item
+                  )
+                ),
+              level + 1
+            ),
+          }),
+          acc
+        ),
+        []
+      );
+
+    console.log(toTree(list));
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

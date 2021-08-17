@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var list = [
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 2 },
+      { title: "xxxx", level: 2 },
+      { title: "xxxx", level: 3 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 0 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 1 },
+      { title: "xxxx", level: 2 },
+      { title: "xxxx", level: 0 },
+    ];
+    function arrayToJson(list) {
+      const length = list.length;
+      let result = [];
+      for (let i = 0; i < length; i++) {
+        //为0直接压入
+        if (list[i].level == 0) {
+          result.push({ title: list[i].title, items: [], level: list[i].level });
+        } else {
+          //压入发生在结果数组尾端，取尾端最高级对象
+          let obj = result[result.length - 1];
+          //若level大于1则循环赋值，找到应该被加入的items数组
+          if (list[i].level > 1) {
+            for (let j = 0; j < list[i].level - 1; j++) {
+              // 通过遍历，取每一层最后的对象里的items里的最后一项赋值给obj
+              //应被加入的items数组位于上一级items的末尾
+              obj = obj.items[obj.items.length - 1];
+              console.log(obj)
+            }
+          }
+          //此时无论level为1或是大于1，都已经找到了对应的items，push即可
+          obj.items.push({ title: list[i].title, items: [], level: list[i].level });
+        }
+      }
+      return result;
+    }
+
+    let a = arrayToJson(list);
+    // console.log(a);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
