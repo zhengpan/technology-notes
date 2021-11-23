@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+
+    window.onload = function () {
+      // const vnode = 123;
+      const vnode = {
+        tag: "DIV",
+        attrs: {
+          id: "app",
+        },
+        children: [
+          {
+            tag: "SPAN",
+            children: [
+              {
+                tag: "A",
+                children: [],
+              },
+            ],
+          },
+          {
+            tag: "SPAN",
+            children: [
+              {
+                tag: "A",
+                children: [],
+              },
+              {
+                tag: "A",
+                children: [],
+              },
+            ],
+          },
+        ],
+      };
+      function render(vnode) {
+        if (typeof vnode === "number") {
+          vnode = String(vnode);
+        }
+
+        if (typeof vnode === "string") {
+          return document.createTextNode(vnode);
+        }
+
+        const ele = document.createElement(vnode.tag);
+
+        if (vnode.attrs) {
+          Object.keys(vnode.attrs).forEach((attrKey) => {
+            ele.setAttribute(attrKey, vnode.attrs[attrKey]);
+          });
+        }
+
+        if (vnode.children) {
+          vnode.children.forEach((nodeItem) => {
+            ele.appendChild(render(nodeItem));
+          });
+        }
+
+        return ele;
+      }
+
+      const elementNode = render(vnode);
+      console.log(elementNode)
+      window.document.body.appendChild(elementNode)
+    }
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>

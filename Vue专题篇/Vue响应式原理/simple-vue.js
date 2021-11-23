@@ -1,6 +1,6 @@
 const utils = {
-  setValue(expr,vm,newValue) {
-    vm.$data[expr] = newValue
+  setValue(expr, vm, newValue) {
+    vm.$data[expr] = newValue;
   },
   getValue(expr, vm) {
     return vm.$data[expr.trim()];
@@ -10,22 +10,22 @@ const utils = {
     console.log(initValue);
     new Watcher(value, vm, (newValue) => {
       this.modelUpdater(node, newValue);
-    })
-    node.addEventListener('input', (e) => {
+    });
+    node.addEventListener("input", (e) => {
       const newValue = e.target.value;
       this.setValue(value, vm, newValue);
-    })
-    this.modelUpdater(node,initValue);
+    });
+    this.modelUpdater(node, initValue);
   },
   text(node, value, vm) {
     // {{xxx}}
     let result;
-    if (value.includes('{{')) {
-      const matchVal = value.replace(/\{\{(.+?)\}\}/g, '$1');
+    if (value.includes("{{")) {
+      const matchVal = value.replace(/\{\{(.+?)\}\}/g, "$1");
       new Watcher(matchVal, vm, (newVal) => {
-        this.textUpdater(node,newVal);
-      })
-      result =  this.getValue(matchVal, vm);
+        this.textUpdater(node, newVal);
+      });
+      result = this.getValue(matchVal, vm);
     } else {
       // v-text="xxx"
       result = this.getValue(value, vm);
@@ -34,19 +34,19 @@ const utils = {
   },
   on(node, value, vm, eventName) {
     const fn = vm.$options.methods[value];
-    node.addEventListener(eventName, fn.bind(vm), false); 
+    node.addEventListener(eventName, fn.bind(vm), false);
   },
-  textUpdater(node,value) {
+  textUpdater(node, value) {
     node.textContent = value;
   },
   modelUpdater(node, value) {
     node.value = value;
-  }
-}
- 
+  },
+};
+
 // 观察者对象类，一个Dom 节点的依赖及更新
 class Watcher {
-  constructor(expr,vm,callback) {
+  constructor(expr, vm, callback) {
     this.expr = expr;
     this.vm = vm;
     this.callback = callback;
@@ -64,7 +64,7 @@ class Watcher {
   }
 
   update() {
-    const newValue = utils.getValue(this.expr, this.vm)
+    const newValue = utils.getValue(this.expr, this.vm);
     if (newValue !== this.oldValue) {
       this.callback(newValue);
     }
@@ -76,22 +76,21 @@ class Dep {
   constructor() {
     this.collect = [];
   }
-  
+
   addWatcher(watcher) {
     this.collect.push(watcher);
   }
 
   notify() {
-    this.collect.forEach(watcher => {
-      watcher.update()
-    })
+    this.collect.forEach((watcher) => {
+      watcher.update();
+    });
   }
 }
 
-
 // 编译模版，解析指令
 class Compiler {
-  constructor(el,vm) {
+  constructor(el, vm) {
     this.el = this.isElementNode(el) ? el : document.querySelector(el);
     this.vm = vm;
 
@@ -103,46 +102,45 @@ class Compiler {
 
   compile(fragment) {
     const childNodes = Array.from(fragment.childNodes);
-    childNodes.forEach(childNode => {
+    childNodes.forEach((childNode) => {
       if (this.isElementNode(childNode)) {
         // 标签节点 h1/input 读取属性。查看是否有v- 开头的内容
         this.compileElement(childNode);
-      } else if(this.isTextNode(childNode)){
+      } else if (this.isTextNode(childNode)) {
         // 内容文本节点{{msg}} 是否有双括号语法
         this.compileText(childNode);
       }
       if (childNode.childNodes && childNode.childNodes.length) {
         this.compile(childNode);
       }
-    })
+    });
   }
 
   compileElement(node) {
     // v-model v-text v-on:click
     const attributes = Array.from(node.attributes);
-    attributes.forEach(attr => {
+    attributes.forEach((attr) => {
       const { name, value } = attr;
       if (this.isDirector(name)) {
         // 指令 v-model v-text v-bind v-on:click
-        const [, directive] = name.split('-')
-        const [compileKey, eventName] = directive.split(':')
+        const [, directive] = name.split("-");
+        const [compileKey, eventName] = directive.split(":");
         // console.log(directive, value);
-        utils[compileKey](node, value, this.vm, eventName)
-      } else if(this.isEventName(name)) {
+        utils[compileKey](node, value, this.vm, eventName);
+      } else if (this.isEventName(name)) {
         // @方法执行
-        const [, eventName] = name.split('@');
+        const [, eventName] = name.split("@");
         utils.on(node, value, this.vm, eventName);
       }
-    })
-    
+    });
   }
 
   isDirector(name) {
-    return name.startsWith('v-')
+    return name.startsWith("v-");
   }
 
   isEventName(name) {
-    return name.startsWith('@')
+    return name.startsWith("@");
   }
 
   compileText(node) {
@@ -150,14 +148,14 @@ class Compiler {
     const content = node.textContent;
     const contentReg = /\{\{(.+?)\}\}/;
     if (contentReg.test(content)) {
-      utils['text'](node, content, this.vm);
+      utils["text"](node, content, this.vm);
     }
   }
 
   compileFragment(el) {
     const f = document.createDocumentFragment();
     let firstChild;
-    while (firstChild = el.firstChild) {
+    while ((firstChild = el.firstChild)) {
       f.appendChild(firstChild);
     }
     console.dir(f);
@@ -179,14 +177,14 @@ class Observer {
   }
 
   observe(data) {
-    if (data && typeof data === 'object') {
+    if (data && typeof data === "object") {
       Object.keys(data).forEach((key) => {
-        this.defineReactive(data,key,data[key])
-      })
+        this.defineReactive(data, key, data[key]);
+      });
     }
   }
 
-  defineReactive(obj,key,value) {
+  defineReactive(obj, key, value) {
     this.observe(value);
     const dep = new Dep();
     Object.defineProperty(obj, key, {
@@ -204,11 +202,10 @@ class Observer {
         this.observe(newVal);
         value = newVal;
         dep.notify();
-      }
-    })
+      },
+    });
   }
 }
-
 
 class Vue {
   constructor(options = {}) {
@@ -236,10 +233,8 @@ class Vue {
         set(newVal) {
           // console.log('proxyData set',key,newVal)
           data[key] = newVal;
-        }
-      })
-    })
+        },
+      });
+    });
   }
 }
-
-
