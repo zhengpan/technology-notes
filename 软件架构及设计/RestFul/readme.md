@@ -1,0 +1,1 @@
+# Restful是一种web服务设计风格/规范，通俗的讲 就是用 URL 定位资源，用 HTTP 动词（GET，POST，DELETE，PUT）描述操作。

@@ -1,0 +1,194 @@
+{
+  "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "*.jsp": "html",
+    "*.html": "html",
+    "*.jsx": "javascriptreact",
+    "*.wpy": "vue"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "eslint.run": "onType",
+  "eslint.options": {
+    "extensions": [".js", ".vue", ".ts", ".tsx"]
+  },
+  "eslint.format.enable": true, //自动缩进的开关 （关键配置），设置为true则打开自动缩进
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true,
+  //  "[vue]": {
+  //    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  //  },
+  "vetur.validation.template": true,
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "git.confirmSync": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.enableSmartCommit": true,
+  "explorer.confirmDelete": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.tabSize": 4,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.trimTrailingWhitespace": true,
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  // 是否开启 vscode 的 eslint
+  "eslint.enable": true,
+  "editor.linkedEditing": true,
+  //  "sonarlint.ls.javaHome": "/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home",
+  //  "sonarlint.rules": {
+  //   "Web:AvoidCommentedOutCodeCheck": {
+  //    "level": "off"
+  //   },
+  //   "javascript:S1854": {
+  //   "level": "off"
+  //   },
+  //   "javascript:UnusedVariable": {
+  //    "level": "off"
+  //   },
+  //   "javascript:S2819": {
+  //    "level": "off"
+  //   },
+  //   "javascript:S1301": {
+  //    "level": "off"
+  //   }
+  //  },
+  //  "sonarlint.connectedMode.project": {
+  //   "projectKey": "fe-pc-hms"
+  //  },
+  //  "sonarlint.connectedMode.connections.sonarqube": [
+  //   {
+  //    "serverUrl": "http://devops-sonar.longhu.net/",
+  //    "token": "bdbaab794c50a54ef4d3183420b63fb75a6e37d7"
+  //   }
+  //  ],
+  "leek-fund.fundSort": -1,
+  "leek-fund.funds": [
+    "260108",
+    "161725",
+    "110022",
+    "002168",
+    "005827",
+    "000751"
+  ],
+  "leek-fund.statusBarStock": ["sh600993"],
+  "leek-fund.stocks": [
+    "sh600999",
+    "sh600993",
+    "sh600016",
+    "sh000001",
+    "sz399001",
+    "sh000300",
+    "sh000016",
+    "sh000688",
+    "hk03690",
+    "hk00700",
+    "usr_ixic",
+    "usr_dji",
+    "usr_inx",
+    "sh600519",
+    "sz000656",
+    "sz002142",
+    "sh600559",
+    "sh600809"
+  ],
+  "editor.formatOnType": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  //  "[json]": {
+  //   "editor.defaultFormatter": "vscode.json-language-features"
+  //  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "TAG",
+    "DONE",
+    "NOTE",
+    "BUG",
+    "HACK"
+  ],
+  "todo-tree.regex.regex": "((%|#|//|<!--|^\\s*\\*)\\s*($TAGS)|^\\s*- \\[( |x|X)\\])",
+  "todo-tree.regex.regexCaseSensitive": true,
+  "todo-tree.highlights.defaultHighlight": {
+    "foreground": "white",
+    "background": "purple",
+    "icon": "check",
+    "rulerColour": "purple",
+    "type": "tag",
+    "iconColour": "purple"
+  },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "background": "red",
+      "rulerColour": "red",
+      "iconColour": "red"
+    },
+    "FIXME": {
+      "background": "yellow",
+      "foreground": "black",
+      "icon": "beaker",
+      "rulerColour": "yellow",
+      "iconColour": "yellow"
+    },
+    "BUG": {
+      "background": "Green",
+      "foreground": "black",
+      "icon": "bug",
+      "rulerColour": "Green",
+      "iconColour": "Green"
+    },
+    "TAG": {
+      "background": "blue",
+      "icon": "tag",
+      "rulerColour": "blue",
+      "iconColour": "blue",
+      "rulerLane": "full"
+    },
+    "DONE": {
+      "background": "green",
+      "icon": "issue-closed",
+      "rulerColour": "green",
+      "iconColour": "green"
+    },
+    "NOTE": {
+      "background": "#f90",
+      "icon": "note",
+      "rulerColour": "#f90",
+      "iconColour ": "#f90"
+    }
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "workbench.iconTheme": "vscode-icons",
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.formatOnSave": true,
+  "javascript.format.enable": true,
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "vetur.format.defaultFormatter.html": "none",
+  "vetur.format.options.tabSize": 4,
+  "editor.detectIndentation": false
+}

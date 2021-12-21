@@ -1,0 +1,72 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "editor.tabSize": 4,
+  //配置eslint
+  "eslint.autoFixOnSave": true, //  每次保存的时候将代码按eslint格式进行修复,默认只支持.js文件
+  // autoSave
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // tslint配置
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "*.acss": "css",
+    "*.axml": "html",
+    "*.wxml": "html",
+    "*.swan": "html"
+  },
+  "files.trimTrailingWhitespace": true,
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  // 是否开启 vscode 的 eslint
+  "eslint.enable": true,
+  "eslint.options": {
+    // 指定 vscode 的 eslint 所处理的文件的后缀
+    "extensions": [".js", ".ts", ".tsx", ".vue"]
+  },
+  "git.ignoreLimitWarning": true,
+  "editor.linkedEditing": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.runtime": "",
+  "editor.formatOnSave": true,
+  "eslint.validate": [
+    "vue",
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "vetur.format.defaultFormatter.html": "none",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vetur.format.options.tabSize": 4,
+  "workbench.colorTheme": "Default Dark+",
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "html.format.unformattedContentDelimiter": "",
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.autoIndent": "advanced"
+  },
+  "editor.detectIndentation": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+}
