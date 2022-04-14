@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery.min.js"></script>
+  <script>
+    $(function(){
+
+      var paramsData = JSON.stringify({
+          getFeatureMode: "SQL",
+          datasetNames: ["supermapdb:服务机构点位"],
+          maxFeatures: 10,
+          queryParameter: {}
+      })
+      $.ajax({
+        type: "POST",
+        url: "http://172.26.54.142:8090/iserver/services/data-BdpfLayer/rest/data/featureResults.rjson?returnContent=true",
+        contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+        data:paramsData,
+        dataType: "json",
+        success: function(res){
+          conosle.log( "Data: " + res );
+        }
+      });
+    });
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
