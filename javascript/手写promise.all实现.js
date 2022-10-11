@@ -30,13 +30,13 @@ Promise.all = function (promiseArray){
 // 测试
 const pro1 = new Promise((res,rej)=>{
     setTimeout(()=>{
-        res('1')
+      res('1')
     },1000)
 })
 
 const pro2 = new Promise((res,rej)=>{
     setTimeout(()=>{
-        rej('2')
+      res('2')
     },2000)
 })
 

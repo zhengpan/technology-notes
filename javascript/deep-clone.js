@@ -73,6 +73,7 @@ const obj = {
   son: {
     name: "张三分",
     age: 12,
+    sex:'男'
   },
 };
 // const deepObj = { ...obj };

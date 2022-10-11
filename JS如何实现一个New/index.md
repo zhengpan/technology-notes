@@ -66,6 +66,7 @@ return result instanceof Object? result : obj;
 ```js
 function myNew() {
   var constr = Array.prototype.shift.call(arguments);
+  console.log(constr);
   var obj = Object.create(constr.prototype);
   var result = constr.apply(obj, arguments);
   return result instanceof Object? result : obj;
@@ -84,7 +85,7 @@ function Person(name, age, job) {
     }
 }
 
-var person = new Person('Nicholas', 29, 'Front-end developer'); 
+var person = new Person('Nicholas', 29, 'Front-end developer');
 // var person = myNew(Person, 'Nicholas', 29, 'Front-end developer');
 
 console.log(person.name) // Nicholas

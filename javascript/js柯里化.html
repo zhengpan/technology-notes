@@ -8,12 +8,14 @@
   <title>Document</title>
   <script>
     function add() {
+      console.log(arguments)
       // 第一次执行时，定义一个数组专门用来存储所有的参数
       var _args = Array.prototype.slice.call(arguments);
-
+      console.log(_args,'第一次');
       // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
       var _adder = function () {
         _args.push(...arguments);
+        console.log(_args,"第二次")
         return _adder;
       };
 
@@ -25,9 +27,13 @@
       }
       return _adder;
     }
-    // const res = add(1, 2, 3)(4)
+    // const res = add(1, 2, 3)(4,5)
+    // console.log(res.toString());
 
-    console.log(add(1)(2)(3));
+    // add第一次接收1时，返回了一个闭包函数_adder,继续调用入参2函数时，执行_adder(),入参3同理。
+    const result = add(1)(2)(3);
+    console.log(result.toString())
+
   </script>
 </head>
 
