@@ -25,9 +25,13 @@ const utils = {
       new Watcher(matchVal, vm, (newVal) => {
         this.textUpdater(node, newVal);
       });
+      // -------2
       result = this.getValue(matchVal, vm);
     } else {
       // v-text="xxx"
+      new Watcher(value, vm, (newVal) => {
+        this.textUpdater(node, newVal);
+      });
       result = this.getValue(value, vm);
     }
     this.textUpdater(node, result);
@@ -47,7 +51,7 @@ const utils = {
 // 观察者对象类，一个Dom 节点的依赖及更新
 class Watcher {
   constructor(expr, vm, callback) {
-    this.expr = expr;
+    this.expr = expr; // key
     this.vm = vm;
     this.callback = callback;
     // 通过getter 对数据进行绑定，标记当前的 watcher
@@ -57,7 +61,7 @@ class Watcher {
 
   getOldValue() {
     Dep.target = this;
-    // 通过getter 读取当前依赖
+    // 通过getter 读取当前依赖    --------1
     const oldValue = utils.getValue(this.expr, this.vm);
     Dep.target = null;
     return oldValue;
@@ -176,7 +180,8 @@ class Observer {
     this.observe(data);
   }
 
-  observe(data) {
+  observe (data) {
+    // 递归终止条件
     if (data && typeof data === "object") {
       Object.keys(data).forEach((key) => {
         this.defineReactive(data, key, data[key]);
@@ -188,7 +193,8 @@ class Observer {
     this.observe(value);
     const dep = new Dep();
     Object.defineProperty(obj, key, {
-      get() {
+      get () {
+        debugger
         console.log("$data getter", key, value);
         const target = Dep.target;
         target && dep.addWatcher(target);
@@ -198,7 +204,7 @@ class Observer {
         if (value === newVal) {
           return;
         }
-        // console.log("$data setter", key, value,newVal);
+        console.log("$data setter", key, value,newVal);
         this.observe(newVal);
         value = newVal;
         dep.notify();
@@ -213,7 +219,7 @@ class Vue {
     this.$data = options.data;
     this.$options = options;
 
-    // 触发this.$data.xx和模版的绑定
+    // 触发this.$data.xx和模版绑定，为属性添加getter/setter，以此实现响应式
     new Observer(this.$data);
     // 处理模版部分，将模版中使用的data部分的变量和模版绑定起来
     new Compiler(this.$el, this);
@@ -222,16 +228,16 @@ class Vue {
     this.proxyData(this.$data);
   }
 
-  // 可以通过this.xx 更改 this.$data.xx的结果
+  // 为vm实例上的属性添加getter/setter,通过this.xx 更改 this.$data.xx的结果
   proxyData(data) {
     Object.keys(data).forEach((key) => {
       Object.defineProperty(this, key, {
         get() {
-          // console.log('proxyData get',key,data[key])
+          console.log('proxyData get',key,data[key])
           return data[key];
         },
         set(newVal) {
-          // console.log('proxyData set',key,newVal)
+          console.log('proxyData set',key,newVal)
           data[key] = newVal;
         },
       });

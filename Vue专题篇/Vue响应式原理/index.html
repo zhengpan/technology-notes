@@ -9,9 +9,10 @@
 <body>
   <div id="app">
     <h1>{{msg}}</h1>
-    <input type="text" v-model="msg" />
+    <!-- <div v-text="msg"></div> -->
+    <!-- <input type="text" v-model="msg" />
     <button v-on:click="handleClick">v-on:handleClick</button>
-    <button @click="handleClick">@handleClick</button>
+    <button @click="handleClick">@handleClick</button> -->
   </div>
   <script src="./simple-vue.js"></script>
   <script>
@@ -27,8 +28,8 @@
         }
       }
     })
-    vm.msg = "something"
-    console.log(vm.msg);
+    // vm.msg = "something"
+    // console.log(vm.msg);
   </script>
 </body>
 </html>

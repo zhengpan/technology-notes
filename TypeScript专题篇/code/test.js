@@ -1,6 +1,9 @@
-// @ts-ignore
-var testFunc = {};
-// @ts-ignore
-var result = testFunc('mike'); // 有类型提醒
-testFunc.someProperty = 3;
-console.log(result, testFunc);
+// interface FuncWithAttachment {
+//   [propName: string]: any;
+//   someProperty: number;
+// }
+// const testFunc: FuncWithAttachment = {
+//   someProperty: 123,
+//   param: 'aaa'
+// };
+// var b = [1, 2, 3, 4];

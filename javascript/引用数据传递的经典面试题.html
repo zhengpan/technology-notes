@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    var user = {
+      name:"小红"
+    }
+    function changeName(user){
+      // 1 行参user首先查找函数内部（函数作用域内） 是否有声明变量，有就使用声明的变量
+      // 2、没有就使用函数实惨传递过来的值
+      // 3、实参也没有那就从全局变量里查找
+      // 4、全局变量里也没有，那就声明一个
+      user.name = "小明"
+      user = {
+        name:'小花'
+      }
+      console.log('形参user',user)
+    }
+    changeName(user);
+
+    console.log(user.name)
+  </script>
+</head>
+<body>
+
+</body>
+</html>
