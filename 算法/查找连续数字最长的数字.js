@@ -16,7 +16,7 @@ let result;
 if(handleArr.length){
     result = handleArr.reduce((pre,cur) => {
         return cur.toString().length > pre.toString().length? cur : pre
-    })
+    },0)
 }
 
 console.log('最长的是：',result);

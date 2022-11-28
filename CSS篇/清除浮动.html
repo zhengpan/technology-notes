@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .topDiv {
+        width: 500px;
+        border: 2px solid black;
+    }
+    .floatDiv {
+        width: 100px;
+        height: 100px;
+        border: 2px dotted red;
+        color: red;
+        margin: 4px;
+        float: left;
+    }
+    .bottomDiv {
+        width: 100%;
+        margin: 5px 0;
+        border: 2px dotted black;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+    .textDiv {
+        color: blue;
+        border: 2px solid blue;
+    }
+    .clearfix:after{
+      content: '';
+      display: block;
+      clear: both;
+      height: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="topDiv clearfix">
+    <div class="floatDiv">float left</div>
+    <div class="textDiv">这段文字能不能这样判断一下，当文字不足一行时，让它居中显示，的撒浮动发生的发生是大</div>
+  </div>
+  <div class="bottomDiv">这段文字能不能这样判断一下，当文字不足一行时，让它居中显示，当文字超过一行就让它居左,这段文字能不能这样判断一下，当文字不足一行时，让它居中显示，当文字超过一行就让它居左这段文字能不能这样判断一下，当文字不足一行时，让它居中显示，当文字超过一行就让它居左</div>
+</body>
+</html>

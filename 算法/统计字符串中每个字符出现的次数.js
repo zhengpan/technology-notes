@@ -20,6 +20,6 @@ for (i = 0; i < ary1.length; i++) {
 let str = "";
 for (var key in obj) {
   //遍历这个对象
-  str += key + obj[key];
+  str += `${key}:${obj[key]} | ` ;
 }
 console.log(str);

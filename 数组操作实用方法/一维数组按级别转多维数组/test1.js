@@ -33,21 +33,11 @@ var toTree = (list, level = 0) =>
         acc.push({
           title: cur.title,
           level: cur.level,
-          items: toTree(
-            list
-              .slice(idx + 1)
-              .map(
-                (item, _, array) => (
-                  item.level == level && (array.length = 0), item
-                )
-              ),
-            level + 1
-          ),
-        }),
-      acc
-    ),
-    []
-  );
+          items: toTree(list.slice(idx + 1).map(
+              (item, _, array) => (item.level == level && (array.length = 0), item)
+            ),level + 1),
+        }), acc),
+  []);
 console.log(JSON.stringify(toTree(list)));
 
 // function arrayToJson(list) {

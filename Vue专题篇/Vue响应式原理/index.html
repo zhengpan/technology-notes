@@ -8,7 +8,7 @@
 </head>
 <body>
   <div id="app">
-    <h1>{{msg}}</h1>
+    <h1>{{msg.name}}</h1>
     <!-- <div v-text="msg"></div> -->
     <!-- <input type="text" v-model="msg" />
     <button v-on:click="handleClick">v-on:handleClick</button>
@@ -16,10 +16,13 @@
   </div>
   <script src="./simple-vue.js"></script>
   <script>
+
     const vm = new Vue({
       el:"#app",
       data:{
-        msg:"hello world"
+        msg:{
+          name:'zhengpan'
+        }
       },
       methods:{
         handleClick(){

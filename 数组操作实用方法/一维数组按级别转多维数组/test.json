@@ -1,134 +1,58 @@
 [
-  {
-    "title": "xxxx",
-    "level": 0,
-    "items": []
-  },
+  { "title": "xxxx", "level": 0, "items": [] },
   {
     "title": "xxxx",
     "level": 0,
     "items": [
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
+      { "title": "xxxx", "level": 1, "items": [] },
+      { "title": "xxxx", "level": 1, "items": [] },
       {
         "title": "xxxx",
         "level": 1,
         "items": [
+          { "title": "xxxx", "level": 2, "items": [] },
           {
             "title": "xxxx",
             "level": 2,
-            "items": []
-          },
-          {
-            "title": "xxxx",
-            "level": 2,
-            "items": [
-              {
-                "title": "xxxx",
-                "level": 3,
-                "items": []
-              }
-            ]
+            "items": [{ "title": "xxxx", "level": 3, "items": [] }]
           }
         ]
       },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      }
+      { "title": "xxxx", "level": 1, "items": [] },
+      { "title": "xxxx", "level": 1, "items": [] }
     ]
   },
   {
     "title": "xxxx",
     "level": 0,
     "items": [
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      }
+      { "title": "xxxx", "level": 1, "items": [] },
+      { "title": "xxxx", "level": 1, "items": [] },
+      { "title": "xxxx", "level": 1, "items": [] },
+      { "title": "xxxx", "level": 1, "items": [] }
     ]
   },
   {
     "title": "xxxx",
     "level": 0,
     "items": [
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": []
-      }
+      { "title": "xxxx", "level": 1, "items": [] },
+      { "title": "xxxx", "level": 1, "items": [] },
+      { "title": "xxxx", "level": 1, "items": [] },
+      { "title": "xxxx", "level": 1, "items": [] }
     ]
   },
   {
     "title": "xxxx",
     "level": 0,
     "items": [
+      { "title": "xxxx", "level": 1, "items": [] },
       {
         "title": "xxxx",
         "level": 1,
-        "items": []
-      },
-      {
-        "title": "xxxx",
-        "level": 1,
-        "items": [
-          {
-            "title": "xxxx",
-            "level": 2,
-            "items": []
-          }
-        ]
+        "items": [{ "title": "xxxx", "level": 2, "items": [] }]
       }
     ]
   },
-  {
-    "title": "xxxx",
-    "level": 0,
-    "items": []
-  }
+  { "title": "xxxx", "level": 0, "items": [] }
 ]

@@ -21,12 +21,17 @@ const utils = {
     // {{xxx}}
     let result;
     if (value.includes("{{")) {
-      const matchVal = value.replace(/\{\{(.+?)\}\}/g, "$1");
-      new Watcher(matchVal, vm, (newVal) => {
+      debugger
+      const matchKey = value.replace(/\{\{(.+?)\}\}/g, "$1");
+
+      const keyArrs = matchKey.split('.');
+      const realKey = keyArrs[keyArrs.length - 1];
+
+      new Watcher(realKey, vm, (newVal) => {
         this.textUpdater(node, newVal);
       });
       // -------2
-      result = this.getValue(matchVal, vm);
+      result = this.getValue(matchKey, vm);
     } else {
       // v-text="xxx"
       new Watcher(value, vm, (newVal) => {
@@ -67,7 +72,8 @@ class Watcher {
     return oldValue;
   }
 
-  update() {
+  update () {
+    debugger
     const newValue = utils.getValue(this.expr, this.vm);
     if (newValue !== this.oldValue) {
       this.callback(newValue);
@@ -194,7 +200,6 @@ class Observer {
     const dep = new Dep();
     Object.defineProperty(obj, key, {
       get () {
-        debugger
         console.log("$data getter", key, value);
         const target = Dep.target;
         target && dep.addWatcher(target);

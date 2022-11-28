@@ -1,16 +1,15 @@
-const count = (function () {
-  let num = 1;
+let num = 1;
+const count = function () {
+  let num = 2
   return function () {
-    if (num === 1) {
-      num = 0;
-    } else {
-      num = 1;
-    }
+    // if (num === 1) {
+    //   num = 0;
+    // } else {
+    //   num = 1;
+    // }
     return num;
   }
-})()
-
-console.log(count())
-console.log(count())
-console.log(count())
-console.log(count())
+}
+console.log(count()())
+num = 3;
+console.log(count()())

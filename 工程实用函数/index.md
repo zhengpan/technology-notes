@@ -63,7 +63,7 @@ document.execCommand('copy')方法，拷贝当前选中内容到剪贴板。
 
 //使用方式
 ```js
-  const fetchData=async()=>{
+  const fetchData = async()=>{
     await sleep(1000)
   }
 ```

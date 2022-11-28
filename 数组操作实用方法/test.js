@@ -3,7 +3,6 @@ function handleFlat() {
   return function flat(arr) {
     for (let item of arr) {
       if (Object.prototype.toString.call(item) === "[object Array]") {
-        debugger;
         newArr.concat(flat(item));
       } else {
         newArr.push(item);

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .warp{
+      width: 300px;
+      height: 100px;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+    #some-element-you-want-to-animate{
+      width: 0;
+      height: 100px;
+      background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    }
+  </style>
+  <script>
+    let requestRef = 0;
+    window.onload = function () {
+      const element = document.getElementById('some-element-you-want-to-animate');
+      let start, previousTimeStamp,count;
+      let done = false
+
+      function step(timestamp) {
+        if (start === undefined) {
+          start = timestamp;
+        }
+        const elapsed = timestamp - start;
+
+        if (previousTimeStamp !== timestamp) {
+
+          count = Math.min((300/10000) * elapsed, 300);  // Math.min(0.05 * elapsed, 300);
+          element.style.width =  count + 'px';
+          // if (count === 300) done = true;
+        }
+
+        if (count < 300) {      // 在10秒后停止动画
+          previousTimeStamp = timestamp;
+          // if (!done) {
+            requestRef = window.requestAnimationFrame(step);
+          // }
+        }else{
+          done = true;
+        }
+      }
+
+      requestRef = window.requestAnimationFrame(step);
+
+      document.querySelector('.prize').addEventListener('click',function(){
+        if(done){
+          console.log('10秒已过，领取成功')
+        }else{
+          console.log('领取失败，未到时间')
+        }
+      })
+      document.querySelector('#restart').onclick = function () {
+        start = undefined;
+        let requestRef = window.requestAnimationFrame(step);
+      }
+      document.querySelector('#stop').onclick = function () {
+        window.cancelAnimationFrame(requestRef);
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="warp">
+    <div id="some-element-you-want-to-animate"></div>
+  </div>
+  <div style="margin-top: 20px;padding-left: 50px;">
+    <button id="stop">停止</button>
+    <button id="restart">重置</button>
+    <button class="prize">获取奖品</button>
+  </div>
+
+
+</body>
+</html>

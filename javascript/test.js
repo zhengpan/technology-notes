@@ -25,7 +25,7 @@ function warped (fn) {
   return function (arg) {
     console.log(arg);
     // item为返回的Promise对象
-    [...fn.before, fn].reduce((total, item) => total.then(item), new Promise((resolve)=> resolve(arg)));
+    [...fn.before, fn].reduce((total, item) => total.then(item), Promise.resolve(arg));
   }
 }
 

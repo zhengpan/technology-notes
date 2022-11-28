@@ -12,15 +12,15 @@ Promise.all = function (promiseArray){
 
         for(let i = 0;i<promiseNum;i++){
             // 注意数组元素类型
-            Promise.resolve(promiseArray[i]).then((value => {
+            Promise.resolve(promiseArray[i]).then(value => {
                 counter++;
                 // 不能用push,会造成返回数据的顺序混乱
                 res[i] = value;
-                // 用counter计算，不能用数组长度
+                // 用counter计算，不能用i === promiseNum.length-1
                 if(counter === promiseNum){
                     resolve(res);
                 }
-            })).catch(e => {
+            }).catch(e => {
                 reject(e);
             });
         }

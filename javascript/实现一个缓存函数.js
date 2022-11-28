@@ -7,7 +7,7 @@ function add (a,b) {
 
 function memorize (fn) {
   const dep = {}
-  return function () {
+  return function (...rest) {
     // console.log([].join.call(arguments,'|'));
     const key = rest.join('|')
     dep[key] || (dep[key] = fn(...rest));

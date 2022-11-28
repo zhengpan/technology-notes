@@ -46,7 +46,7 @@ let sourceData = [
   },
 ]
 
-// 先给每一层几点添加pid
+// 先给每一层节点添加pid
 function setParentId(arr, targetId) {
   const findArr = function (arr1, id) {
     arr1.forEach((item) => {
@@ -64,7 +64,8 @@ function setParentId(arr, targetId) {
 }
 
 const handleData = setParentId(sourceData)
-console.log(JSON.stringify(handleData))
+
+// console.log(JSON.stringify(handleData))
 
 // 深度优先遍历----使用闭包保存局部变量，使用递归
 function findParentName(arr, curId) {
